@@ -589,4 +589,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-Made with ❤️ by the QueueFlow Team
+Made with ❤️

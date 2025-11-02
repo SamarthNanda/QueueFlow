@@ -4,7 +4,7 @@
 
 **Version:** 1.0.0
 **Last Updated:** November 2025
-**Author:** QueueFlow Team
+**Author:** Samarth Nanda
 
 ---
 
@@ -2356,7 +2356,7 @@ await queueManager.enqueue('send-email', payload, {
 
 **Document Version:** 1.0.0
 **Last Updated:** November 2025
-**Maintained By:** QueueFlow Team
+**Maintained By:** Samarth Nanda
 
 *For questions or contributions, open an issue on GitHub.*
 
