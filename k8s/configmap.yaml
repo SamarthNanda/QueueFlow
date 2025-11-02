@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: queueflow-config
+  labels:
+    app: queueflow
+data:
+  # Redis Configuration
+  redis.host: "queueflow-redis"
+  redis.port: "6379"
+  redis.db: "0"
+  redis.keyPrefix: "queueflow:"
+
+  # Worker Configuration
+  worker.minWorkers: "2"
+  worker.maxWorkers: "20"
+  worker.concurrency: "5"
+  worker.heartbeatInterval: "5000"
+  worker.jobTimeout: "30000"
+
+  # Auto-Scaling Configuration
+  scaling.upThreshold: "100"
+  scaling.downThreshold: "10"
+  scaling.cooldownPeriod: "60000"
+  scaling.strategy: "default"
+
+  # Queue Configuration
+  queue.highPriorityWeight: "60"
+  queue.normalPriorityWeight: "30"
+  queue.lowPriorityWeight: "10"
+  queue.defaultMaxRetries: "3"
+  queue.dlqRetentionDays: "7"
+
+  # Monitoring Configuration
+  monitoring.metricsInterval: "10000"
+  monitoring.enableWebSocket: "true"
+
+  # Logging Configuration
+  logging.level: "info"
+  logging.format: "json"

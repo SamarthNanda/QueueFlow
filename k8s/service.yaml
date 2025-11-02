@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: queueflow
+  labels:
+    app: queueflow
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  - port: 9090
+    targetPort: 9090
+    protocol: TCP
+    name: metrics
+  selector:
+    app: queueflow
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: queueflow-redis
+  labels:
+    app: queueflow-redis
+spec:
+  type: ClusterIP
+  ports:
+  - port: 6379
+    targetPort: 6379
+    protocol: TCP
+    name: redis
+  selector:
+    app: queueflow-redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: queueflow-headless
+  labels:
+    app: queueflow
+spec:
+  type: ClusterIP
+  clusterIP: None
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+    name: http
+  selector:
+    app: queueflow
