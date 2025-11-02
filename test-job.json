@@ -1,0 +1,10 @@
+{
+  "type": "process-data",
+  "payload": {
+    "message": "Hello QueueFlow!",
+    "data": [1, 2, 3]
+  },
+  "options": {
+    "priority": "high"
+  }
+}
