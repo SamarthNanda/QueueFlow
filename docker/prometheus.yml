@@ -1,0 +1,18 @@
+# Prometheus configuration for QueueFlow
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: 'queueflow-monitor'
+
+scrape_configs:
+  - job_name: 'queueflow'
+    static_configs:
+      - targets: ['queueflow:9090']
+        labels:
+          app: 'queueflow'
+          environment: 'production'
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
